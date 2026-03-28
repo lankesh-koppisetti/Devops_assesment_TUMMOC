@@ -12,9 +12,9 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Code Checkout') {
             steps {
-                git 'https://github.com/your-username/bike-devops-project.git'
+                git branch: 'master', url: 'https://github.com/lankesh-koppisetti/Devops_assesment_TUMMOC.git'
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+        stage('CQA') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh '''
